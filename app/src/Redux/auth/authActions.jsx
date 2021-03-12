@@ -29,6 +29,17 @@ export var signup = ({ email, password, fullName }) => async (dispatch) => {
       createdAt: serverTimestamp(),
     };
     await firestore.collection("users").doc(uid).set(userInfo);
+    // var fetchUserInfo = await firestore.collection("users").doc(uid).get();
+    // var { email: userEmail, fullName } = fetchUserInfo.data();
+
+    // var userData = {
+    //   fullName,
+    //   email: userEmail,
+    //   uid,
+    // };
+
+    // dispatch(setUser(userData));
+
   } catch (error) {
     console.log(error);
   }
@@ -59,7 +70,7 @@ export var signout = () => async (dispatch) => {
 
   //delete from frontend
 
-  // dispatch(removeUser())
+  dispatch(removeUser())
 };
 
 export var googleSignin = () => async (dispatch) => {
@@ -75,7 +86,6 @@ export var googleSignin = () => async (dispatch) => {
         email,
         createdAt: serverTimestamp(),
       };
-
       await firestore.collection("users").doc(uid).set(userInfo);
     }
     // this step is mendatory for set data in app
@@ -94,21 +104,21 @@ export var googleSignin = () => async (dispatch) => {
 
 export var checkUserStatus = () => async (dispatch) => {
   try {
-    firebase.auth().onAuthStateChanged(async function(user) {
+    firebase.auth().onAuthStateChanged(async function (user) {
       if (user) {
         var { uid } = user;
         // User is signed in.
         var query = await firestore.collection("users").doc(uid).get();
-        console.log(query.data())
-        // var {email, fullName} = query.data();
+        // console.log(query.data())
+        var {email,fullName} = query.data();
 
-        // var userData = {
-        //   fullName,
-        //   email,
-        //   uid,
-        // };
+        var userData = {
+          fullName,
+          email,
+          uid,
+        };
 
-        // dispatch(setUser(userData));
+        dispatch(setUser(userData));
       } else {
         // No user is signed in.
         //delete from frontend
