@@ -8,6 +8,7 @@ import Checkout from "./Pages/Home/Checkout/Checkout";
 import { connect } from "react-redux";
 import { useEffect } from "react";
 import { checkUserStatus } from "./Redux/auth/authActions";
+import Test from "./Components/Test/Test";
 
 function App({ checkUserStatus }) {
   useEffect(() => {
@@ -21,6 +22,7 @@ function App({ checkUserStatus }) {
         <Route path="/Categories" component={Categories} />
         <Route path="/categoryProduct" component={CategoryProduct} />
         <Route path="/Checkout" component={Checkout} />
+        <Route path="/test" component={Test}/>
       </Switch>
     </div>
   );
