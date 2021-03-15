@@ -9,6 +9,7 @@ import { connect } from "react-redux";
 import { useEffect } from "react";
 import { checkUserStatus } from "./Redux/auth/authActions";
 import Test from "./Components/Test/Test";
+import Navbar from "./Components/Navbar/Navbar";
 
 function App({ checkUserStatus }) {
   useEffect(() => {
@@ -16,6 +17,7 @@ function App({ checkUserStatus }) {
   }, [checkUserStatus]);
   return (
     <div>
+      <Navbar/>
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/Authentication" component={Authentication} />
