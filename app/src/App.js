@@ -22,7 +22,7 @@ function App({ checkUserStatus }) {
         <Route path="/" component={Home} exact />
         <Route path="/Authentication" component={Authentication} />
         <Route path="/Categories" component={Categories} />
-        <Route path="/categoryProduct" component={CategoryProduct} />
+        <Route path="/categoryProduct/:category" component={CategoryProduct} />
         <Route path="/Checkout" component={Checkout} />
         <Route path="/test" component={Test}/>
       </Switch>
