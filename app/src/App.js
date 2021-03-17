@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import { checkUserStatus } from "./Redux/auth/authActions";
 import Test from "./Components/Test/Test";
 import Navbar from "./Components/Navbar/Navbar";
+import Products from "./Pages/Home/Products/Products";
 
 function App({ checkUserStatus }) {
   useEffect(() => {
@@ -23,6 +24,7 @@ function App({ checkUserStatus }) {
         <Route path="/Authentication" component={Authentication} />
         <Route path="/Categories" component={Categories} />
         <Route path="/categoryProduct/:category" component={CategoryProduct} />
+        <Route path="/products/:productId" component={Products}/>
         <Route path="/Checkout" component={Checkout} />
         <Route path="/test" component={Test}/>
       </Switch>
