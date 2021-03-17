@@ -8,8 +8,6 @@ import {
 
 const ProductCard = ({
   addProductToCart,
-  removeProductFromCart,
-  deleteProductFromCart,
   ...product
 }) => {
   var { title, cost } = product;
@@ -18,12 +16,7 @@ const ProductCard = ({
       <h3>
         {title}-{`$${cost}`}-
         <button onClick={() => addProductToCart(product)}>Add to cart</button>
-        <button onClick={() => removeProductFromCart(product.id)}>
-          Remove from cart
-        </button>
-        <button onClick={() => deleteProductFromCart(product.id)}>
-          Delete from cart
-        </button>
+        
       </h3>
     </div>
   );
@@ -31,8 +24,6 @@ const ProductCard = ({
 
 var actions = {
   addProductToCart,
-  removeProductFromCart,
-  deleteProductFromCart,
 };
 
 export default connect(null, actions)(ProductCard);

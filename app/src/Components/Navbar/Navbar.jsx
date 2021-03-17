@@ -19,6 +19,11 @@ const Navbar = () => {
         <h2>Authentication</h2>
           </Link>
       </div>
+      <div className="test flex">
+          <Link to="/test">
+        <h2>Test</h2>
+          </Link>
+      </div>
     </div>
   );
 };

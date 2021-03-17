@@ -3,8 +3,8 @@
     height: 10vh;
     background-color: lightgray;
     display: grid;
-    grid-template-columns: 6fr 4fr 4fr;
-    grid-template-areas: "logo category auth";
+    grid-template-columns: 6fr 3fr 3fr 3fr;
+    grid-template-areas: "logo category auth test";
 }
 .flex{
     display: flex;
@@ -23,5 +23,9 @@
 }
 .auth{
     grid-area: auth;
+    cursor: pointer;
+}
+.test{
+    grid-area: test;
     cursor: pointer;
 }
