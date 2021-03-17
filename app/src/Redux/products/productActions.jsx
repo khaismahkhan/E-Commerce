@@ -83,7 +83,7 @@ export var fetchSpecificProducts =(productId) =>async (dispatch) =>{
 
   var query = await firestore.collection("products").doc(productId).get()
   var product = query.data()
-  console.log(product)
+  return product
 }
 
 
