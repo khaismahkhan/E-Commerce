@@ -25,7 +25,7 @@ function App({ checkUserStatus }) {
         <Route path="/Categories" component={Categories} />
         <Route path="/categoryProduct/:category" component={CategoryProduct} />
         <Route path="/products/:productId" component={Products}/>
-        <Route path="/Checkout" component={Checkout} />
+        <Route path="/Checkout/:orderId" component={Checkout} />
         <Route path="/test" component={Test}/>
       </Switch>
     </div>
