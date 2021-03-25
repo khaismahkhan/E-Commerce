@@ -1,7 +1,10 @@
-import React, { useState, useeffect, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import {updateOrderInfo} from "../../Redux/Order/orderActions"
 
-const OrderForm = ({user}) => {
+const OrderForm = ({user,updateOrderInfo,cart, match:{params:{orderId}}}) => {
+
   var [fullName, setFullName] = useState("");
   var [email, setEmail] = useState("");
   var [phone, setPhone] = useState("");
@@ -22,7 +25,7 @@ const OrderForm = ({user}) => {
       phone,
       address,
     };
-    console.log(shippingInfo)
+    updateOrderInfo({cart, shippingInfo, orderId})
   };
 
   return (
@@ -60,7 +63,12 @@ const OrderForm = ({user}) => {
 };
 
 var mapState =(state) =>({
-    user : state.auth
+    user : state.auth,
+    cart : state.cart
 })
 
-export default connect(mapState)(OrderForm);
+var actions = {
+  updateOrderInfo
+}
+
+export default connect(mapState,actions)(withRouter(OrderForm));
