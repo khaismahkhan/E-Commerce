@@ -19,9 +19,17 @@ export var generateOrder = () => async (dispatch, getState) => {
   }
 };
 
-export var updateOrderInfo = ({orderId,cart,shippingInfo})=> async (dispatch) =>{
+export var processOrder = ({orderId,cart,shippingInfo})=> async (dispatch) =>{
     try {
+        // update order
         await firestore.collection("/orders").doc(orderId).update({shippingInfo,cart})
+
+        //call to stripe checkout session
+        
+
+        //redirect to stripe checkout page
+
+
     } catch (error) {
         console.log(error)
     }
